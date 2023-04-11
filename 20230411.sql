@@ -1,0 +1,1 @@
+SELECT first_name, hire_date, TO_CHAR(hire_date, 'YYYY"³â" MM"¿ù" DD"ÀÏ"') "hd_kor" FROM employees WHERE department_id = 20 ORDER BY hire_date DESC;
