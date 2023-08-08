@@ -72,7 +72,8 @@ FROM departments d, locations l WHERE d.location_id = l.location_id(+)
 UNION SELECT d.department_name 부서명, d.location_id "지역코드(departments)", l.location_id "지역코드(locations)", l.city 도시명 
 FROM departments d, locations l WHERE d.location_id(+) = l.location_id;
 
+-- [CROSS JOIN] 급여를 3000보다 많이 받는 사원들의 이름, 급여, 부서번호, 부서명 조회(모든 부서테이블 조인)
 SELECT e.first_name 이름, e.salary 급여, d.department_id 부서번호, d.department_name 부서명
 FROM departments d LEFT OUTER JOIN employees e ON e.department_id = d.department_id
--- WHERE를 쓰게 되면 먼저 급여에 null이 걸러짐.
+-- WHERE를 쓰게 되면 먼저 3000 이하는 거름(급여가 null이면 다 걸러짐)
 AND salary > 3000;
