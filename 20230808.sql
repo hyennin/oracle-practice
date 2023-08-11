@@ -25,6 +25,3 @@ SELECT employee_id, first_name, job_title, hire_date, salary FROM employees e, j
 WHERE e.job_id = j.job_id  
 AND e.job_id = (SELECT job_id FROM employees WHERE employee_id = 162)
 AND salary > (SELECT salary FROM employees WHERE first_name = 'Clara');
-
-SELECT MIN(salary) FROM employees
-WHERE
